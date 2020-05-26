@@ -1,7 +1,7 @@
 <div class="container border border-primary p-md-3 mt-5">
 
     <div class="col text-right">
-        <button type="button" class="btn btn-outline-dark align-self-center">Cerrar Sesión</button>
+        <button type="button" (click)="cerrarSesion()" class="btn btn-outline-dark align-self-center">Cerrar Sesión</button>
     </div>
 
     <h1 class="text-center">¡Gracias!</h1>
@@ -11,7 +11,9 @@
     <br><br>
 
     <div class="col text-center">
-        <h3>Has finalizado el test para tu elección de taller</h3>
+        <h3>El taller favorito entre los estudiantes:</h3>
+        <br>
+        <h1>{{taller | uppercase}}</h1>
     </div>
 
 

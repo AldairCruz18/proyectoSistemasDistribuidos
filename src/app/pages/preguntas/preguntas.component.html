@@ -6,29 +6,54 @@
     </div>
 
     <div class="col text-center p-md-4 border border-dark">
-        <form class="align-items-center">
+        <form class="align-items-center" [formGroup]="form" (ngSubmit)="guardar()">
             <div *ngFor="let pregunta of preguntasArr">
                 <div class="form-group col text-center">
                     <label for="staticEmail" class="col-sm-auto col-form-label"><h5>{{ pregunta.pregunta }}</h5></label>
                 </div>
 
                 <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="inlineCheckbox1">
+                        <input class="form-check-input" (change)="onCheckboxChange($event)" type="checkbox" id={{pregunta.id}} value="SI">Si
+                    </label> &nbsp;&nbsp;
+                    <label class="form-check-label" for="inlineCheckbox2">
+                        <input class="form-check-input" (change)="onCheckboxChange($event)" type="checkbox" id={{pregunta.id}} value="NO">No
+                    </label>
+                </div>
+
+                <!--<div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                     <label class="form-check-label" for="inlineCheckbox1"><b>Sí</b></label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
                     <label class="form-check-label" for="inlineCheckbox2"><b>No</b></label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                    <label class="form-check-label" for="inlineCheckbox3">Tal vez</label>
-                </div>
+                </div>-->
             </div>
 
             <br>
             <div class="col text-right">
-                <button type="button" class="btn btn-outline-dark align-self-center">Enviar</button>
+                <input type="submit" value="Enviar" class="btn btn-outline-dark align-self-center">
+                <!--<button type="button" class="btn btn-outline-dark align-self-center">Enviar</button>-->
+            </div>
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with radio button">
             </div>
 
         </form>

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'login'   , component: LoginComponent },
   { path: 'preguntas'   , component: PreguntasComponent },
-  { path: 'agradecimiento'   , component: AgradecimientoComponent },
+  { path: 'agradecimiento/:taller'   , component: AgradecimientoComponent },
   { path: '**', redirectTo: 'registro' }
 ];
 
