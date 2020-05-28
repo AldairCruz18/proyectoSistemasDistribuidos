@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home'    , component: HomeComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login'   , component: LoginComponent },
-  { path: 'preguntas'   , component: PreguntasComponent },
+  { path: 'preguntas/:id'   , component: PreguntasComponent },
   { path: 'agradecimiento/:taller'   , component: AgradecimientoComponent },
   { path: '**', redirectTo: 'registro' }
 ];

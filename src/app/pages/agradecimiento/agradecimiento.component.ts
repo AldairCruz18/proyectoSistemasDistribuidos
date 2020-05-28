@@ -14,7 +14,6 @@ export class AgradecimientoComponent implements OnInit {
               private router: Router) {
               this.activeRoute.params.subscribe( params => {
                 this.taller = params['taller'];
-                console.log(this.taller);
               });
                }
 

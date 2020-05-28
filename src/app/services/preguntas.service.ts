@@ -54,4 +54,9 @@ export class PreguntasService {
       return this.http.post(url, params, {responseType: 'text'});
      }
 
+     getUser(user: string, pass: any) {
+      const url = `http://localhost:8082/getUser/${ user }/${ pass }`;
+
+      return this.http.get(url);
+     }
 }

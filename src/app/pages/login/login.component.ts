@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioModel } from '../../models/usuario.models';
+import { PreguntasService } from '../../services/preguntas.service';
+import { Md5 } from 'ts-md5/dist/md5';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,15 @@ export class LoginComponent implements OnInit {
 
   usuario: UsuarioModel;
 
-  constructor() { }
+  user: string;
+  password: any;
+  userReturn: any;
+
+  show: boolean = false;
+  alerta: string;
+  mensaje: string = '';
+
+  constructor( private preguntas: PreguntasService, private router: Router ) { }
 
   ngOnInit() {
     this.usuario = new UsuarioModel();
@@ -22,12 +33,29 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log(form);
-    console.log(form.form.value);
-    console.log(form.form.value.email);
-    console.log(form.form.value.pass);
+    const md5 = new Md5();
 
-    console.log("Entro");
+    this.user = form.form.value.email;
+    this.password = md5.appendStr(form.form.value.pass).end();
+
+    this.preguntas.getUser(this.user, this.password)
+    .subscribe((data: any) => {
+      this.userReturn = data;
+      if (this.userReturn['id'] === null) {
+        this.mensaje = 'Usuario y/o contraseña incorrectos, verifique.';
+
+        this.alerta = 'alert-danger';
+        this.show = true;
+
+        setTimeout(function() {
+        this.show = false;
+      }.bind(this), 3000);
+      } else {
+        this.router.navigate( ['/preguntas', this.userReturn['id']] );
+      }
+    }, ( errorServicio ) => {
+      console.log('Error');
+   });
   }
 
 }

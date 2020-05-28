@@ -67,9 +67,6 @@ export class RegistroComponent implements OnInit {
 
   guardadoEstatus() {
     if (this.guardado) {
-
-      console.log('Entro a exitoso');
-
       this.alerta = 'alert-success';
       this.show = true;
 
@@ -80,8 +77,6 @@ export class RegistroComponent implements OnInit {
         this.router.navigate( ['/login'] );
       }.bind(this), 5000);
     } else if (!this.guardado) {
-      console.log('Entro a no exitoso');
-
       this.alerta = 'alert-danger';
       this.show = true;
 
