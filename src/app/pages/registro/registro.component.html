@@ -1,6 +1,11 @@
 <div class="limiter animated fadeInRight">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
+
+            <div *ngIf="show" class="alert {{alerta}} animated fadeIn" role="alert">
+                {{mensaje}}
+            </div>
+
             <form (ngSubmit)="onSubmit( registroForm )" #registroForm="ngForm" class="login100-form validate-form flex-sb flex-w">
 
                 <span class="login100-form-title p-b-51">
@@ -18,21 +23,31 @@
                 </div>
 
                 <span class="text-danger animated fadeIn" *ngIf="registroForm.submitted && 
-                registroForm.controls['nombre'].errors">
+                registroForm.controls['name'].errors">
                     El nombre es obligatorio
                  </span>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="text" name="nombre" placeholder="Nombre y apellidos" [(ngModel)]="usuario.nombre" required minlength="2">
+                    <input class="input100" type="text" name="name" placeholder="Nombre(s)" [(ngModel)]="usuario.name" required minlength="2">
 
                     <span class="focus-input100"></span>
                 </div>
 
                 <span class="text-danger animated fadeIn" *ngIf="registroForm.submitted && 
-                registroForm.controls['pass'].errors">
+                registroForm.controls['apellidos'].errors">
+                    El apellido es obligatorio
+                 </span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" name="apellidos" placeholder="Apellido(s)" [(ngModel)]="usuario.apellidos" required minlength="2">
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="text-danger animated fadeIn" *ngIf="registroForm.submitted && 
+                registroForm.controls['password'].errors">
                     La contraseña tiene que tener al menos 6 digitos
                  </span>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="password" name="pass" placeholder="Password" [(ngModel)]="usuario.password" required minlength="6">
+                    <input class="input100" type="password" name="password" placeholder="Password" [(ngModel)]="usuario.password" required minlength="6">
                     <span class="focus-input100"></span>
                 </div>
 

@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
     }
 
     console.log(form);
+    console.log(form.form.value);
+    console.log(form.form.value.email);
+    console.log(form.form.value.pass);
 
     console.log("Entro");
   }
