@@ -8,12 +8,12 @@ import { PreguntasComponent } from './pages/preguntas/preguntas.component';
 import { AgradecimientoComponent } from './pages/agradecimiento/agradecimiento.component';
 
 const routes: Routes = [
-  { path: 'home'    , component: HomeComponent },
+  { path: 'home/:id'    , component: HomeComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login'   , component: LoginComponent },
   { path: 'preguntas/:id'   , component: PreguntasComponent },
   { path: 'agradecimiento/:taller'   , component: AgradecimientoComponent },
-  { path: '**', redirectTo: 'registro' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

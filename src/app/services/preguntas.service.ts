@@ -37,14 +37,6 @@ export class PreguntasService {
 
       const params = json;
       return this.http.post(url, params, {responseType: 'text'});
-      /*
-      .subscribe((data: any) => {
-      this.preguntasArr = data;
-      this.preguntasArr.forEach(element => {
-      });
-    }, ( errorServicio ) => {
-      console.log('Error');
-   }); */
      }
 
      postUser(json: JSON) {

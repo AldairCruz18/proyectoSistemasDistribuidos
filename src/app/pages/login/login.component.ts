@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   login( form: NgForm ) {
+    console.log(form);
     if (form.invalid) {
       return;
     }
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.show = false;
       }.bind(this), 3000);
       } else {
-        this.router.navigate( ['/preguntas', this.userReturn['id']] );
+        this.router.navigate( ['/home', this.userReturn['id']] );
       }
     }, ( errorServicio ) => {
       console.log('Error');

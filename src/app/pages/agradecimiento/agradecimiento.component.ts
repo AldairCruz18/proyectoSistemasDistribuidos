@@ -12,6 +12,7 @@ export class AgradecimientoComponent implements OnInit {
 
   constructor(private activeRoute: ActivatedRoute,
               private router: Router) {
+
               this.activeRoute.params.subscribe( params => {
                 this.taller = params['taller'];
               });
